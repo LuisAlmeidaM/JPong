@@ -7,6 +7,8 @@ public class VentanaJuego extends JFrame{
     private int anchoVentana;
     private int altoVentana;
     private String nombreVentana;
+
+     private PanelJuego panelJuego;
     
     public VentanaJuego(int anchoVentana, int altoVentana, String nombreVentana){
         this.anchoVentana = anchoVentana;
@@ -18,6 +20,11 @@ public class VentanaJuego extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+
+        // Panel de juego
+        panelJuego = new PanelJuego(anchoVentana, altoVentana);
+        this.add(panelJuego);
+        this.pack();
     }
 
     public void Mostrar(){
