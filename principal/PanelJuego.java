@@ -2,6 +2,8 @@ package principal;
 
 import javax.swing.JPanel;
 
+import Entidades.Jugador;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -17,6 +19,9 @@ public class PanelJuego extends JPanel implements Runnable{
     private final int FPS = 60;
     ////
     
+    // Jugador
+    private Jugador jugador;
+    
     public PanelJuego(int anchoPanel, int altoPanel){
         this.anchoPanel = anchoPanel;
         this.altoPanel = altoPanel;
@@ -24,6 +29,9 @@ public class PanelJuego extends JPanel implements Runnable{
 
         this.setBackground(Color.BLACK);
         this.setFocusable(true);
+
+        // Instanciar Jugador
+        jugador = new Jugador(50, 250, 20, 100);
 
         IniciarHilo();
     }
@@ -59,7 +67,7 @@ public class PanelJuego extends JPanel implements Runnable{
 
     // Metodo para actualizar Juego
     private void Actualizar(){
-        System.out.println("Actualizando");
+        //System.out.println("Actualizando");
     }
 
     // Metodo para dibujar
@@ -67,8 +75,7 @@ public class PanelJuego extends JPanel implements Runnable{
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        //Dibujar cuadro
-        g.setColor(Color.RED);
-        g.fillRect(100, 100, 64, 64);
+        //Dibujar Jugador
+        jugador.Dibujar(g);
     }
 }
